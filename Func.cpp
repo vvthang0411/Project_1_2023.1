@@ -1,7 +1,7 @@
 #include "funcPrototypes.h"
 
 void drawWaveForm(int16_t *data, int num_samples, int color, int startX, int startY, int widthOfWindow, int firstSignal) {
-	float sample_spacing = (float)(widthOfWindow)/num_samples;    //Draw a wave graph
+	float sample_spacing = (float)(widthOfWindow)/num_samples;
     for ( int i = 0; i < num_samples ; i++) {
         int x1 = startX + i * sample_spacing;
         int y1 = startY - (data[i+firstSignal] * 80 / MAX_AMPLITUDE);
@@ -43,11 +43,9 @@ void showMaxMinAutoCorr(float maxAutoCorr, float minAutoCorr) {
 	settextstyle(SMALL_FONT, HORIZ_DIR, 5);
 	
 	char buffer[50] = {}, rightBuffer[15] = {};
-//	char max[] = "Max = ";
 	strcat(buffer, "Max = ");
 	sprintf(rightBuffer, "%.1f", maxAutoCorr);
 	strcat(buffer, rightBuffer);
-//	strcat(buffer, rightBuffer);
 	strcat(buffer, ", Min = ");
 	sprintf(rightBuffer, "%.1f", minAutoCorr);
 	strcat(buffer, rightBuffer);
@@ -63,7 +61,6 @@ void calculateAndDrawAutocorrelation(int16_t *data, float *autoCorr, int start, 
 		for (int i = start; i < start + WINDOW_SIZE - delay; i++) {
 			autoCorr[delay] += data[i] * data[i+delay];
 		}
-//	autoCorr[shift] /= (WINDOW_SIZE-shift);
 	}
 	
 	float maxAutoCorr = 0;

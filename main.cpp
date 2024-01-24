@@ -4,20 +4,18 @@ float timeLength;
 int Fs;
 
 int main(int argc, char *argv[]) {
-//	std::cout << WIDTH << HEIGHT;
+
 	//Định dạng kích thước cho cửa sổ đồ họa
-	
 	int width = WIDTH+9;
     int height = HEIGHT+13;
-    setcolor(LIGHTGRAY);
-    
     initwindow(width, height, "Funda_Wave");
+    setcolor(LIGHTGRAY);
     setbkcolor(LIGHTGRAY);
-	//aa
+    
+	//Open and read file
 	FILE* infile;
 	OPENFILENAME ofn;
     char szFile[260];
-
     ZeroMemory(&ofn, sizeof(ofn));
     ofn.lStructSize = sizeof(ofn);
     ofn.hwndOwner = NULL;
@@ -44,7 +42,7 @@ int main(int argc, char *argv[]) {
         printf("Nguoi dung da huy.\n");
         exit(1);
     }
-
+    
     headerP meta;
     meta = (headerP)malloc(sizeof(header));
     // Read the first 36 bytes
@@ -70,14 +68,14 @@ int main(int argc, char *argv[]) {
     inbuff16 = (int16_t*)malloc(2 * sizeof(int16_t) * SampleNumber);
     fread(inbuff16, 2, SampleNumber, infile);
 
- // file time
+ // file length
 	timeLength = static_cast<float>(SampleNumber)/Fs;
 	borderRadius();
 	drawWaveForm(inbuff16, SampleNumber, LIGHTGREEN, 50, 100, 900, 0);
 	drawAndClearCurrentWindow (inbuff16, SampleNumber, LIGHTGREEN, 200, 300);
 	
 	moveTwoCursors(inbuff16);
-	
+
 	free(meta);
 	fclose(infile);    
     return 0;
