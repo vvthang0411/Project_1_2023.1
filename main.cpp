@@ -16,7 +16,7 @@ int main(int argc, char *argv[]) {
 	//aa
 	FILE* infile;
 	OPENFILENAME ofn;
-    char szFile[300];
+    char szFile[260];
 
     ZeroMemory(&ofn, sizeof(ofn));
     ofn.lStructSize = sizeof(ofn);
