@@ -1,7 +1,13 @@
 #include "funcPrototypes.h"
+#include <vector>
+int xRedCursor = 200;
+int xBlueCursor = 250;
+char ch;
+std::vector<int> fx;
+std::vector<int> fy;
+std::vector<int> f_val;
 
 void zoomTheSelectedWave(int16_t *data,int xRedCursor,int xBlueCursor) {
-	//drawWaveForm(int16_t *data, int num_samples, int color, int startX, int startY, int widthOfWindow, int firstSignal);
 	float sample_spacing = (float)(900)/SampleNumber;
 	int redCursorIndex, blueCursorIndex;
 	redCursorIndex = static_cast<float>(xRedCursor - 50)/sample_spacing;
@@ -10,23 +16,42 @@ void zoomTheSelectedWave(int16_t *data,int xRedCursor,int xBlueCursor) {
 	drawWaveForm(data, num_samples, LIGHTGREEN, 50, 300, 420, redCursorIndex);
 }
 
-void drawWaveForm2(int16_t *data, int num_samples, int color, int startX, int startY, int widthOfWindow, int firstSignal) {
-	float sample_spacing = (float)(widthOfWindow)/num_samples;    //Draw a wave graph
-    for ( int i = 0; i < num_samples ; i++) {
-        int x1 = startX + i * sample_spacing;
-        int y1 = startY - (data[i+firstSignal] * 80 / MAX_AMPLITUDE);
-        int x2 = startX + (i + 1) * sample_spacing;
-        int y2 = startY - (data[i + firstSignal+1] * 80 / MAX_AMPLITUDE); 
-
-        setcolor(color);
-        line(x1, y1, x2, y2);
-    }
+void showFrequencyValue(){
+	int f_index(0);
+	int *bufferf = (int*)malloc(imagesize(50, 420, 950, 580));
+	getimage(50, 420, 950, 580, bufferf);
+	while (1) {
+		if (kbhit()) {
+				
+			ch = getch();
+			if ((ch == ',') && (f_index > 0)) {
+				--f_index;
+			}
+			else if ((ch == '.') && (f_index < fx.size()-1)) {
+				++f_index;
+			}
+			else if (ch == 'f'|| fx.size() == 0) return;
+			//dat lai nen
+			putimage(50, 420,bufferf, COPY_PUT);
+			setcolor (YELLOW);
+			//danh dau diem dang xet
+			circle(fx[f_index], fy[f_index], 5);
+			setcolor(BLACK);
+			char buffer[20] = {};
+			char buffer2[5] = {};
+			strcat(buffer, "f");
+			sprintf(buffer2, "%d", f_index+1);
+			strcat(buffer, buffer2);
+			strcat(buffer, " = ");
+			sprintf(buffer2, "%.1d", f_val[f_index]);
+			strcat(buffer, buffer2);
+			strcat(buffer, " Hz");
+			outtextxy(50, 420, buffer);
+		}
+	}
 }
 
 void moveTwoCursors(int16_t *data){
-	char ch;
-	int xRedCursor = 100, yRedCursor = 100;
-    int xBlueCursor = 200, yBlueCursor = 100;
 	int *bufferWave = (int*)malloc(imagesize(20, 20, 950, 180));
 	getimage(50, 20, 950, 180, bufferWave);
     while (1) {
@@ -35,17 +60,23 @@ void moveTwoCursors(int16_t *data){
             ch = getch();
             
             if ((ch == 'T') && (xBlueCursor > xRedCursor)) {
-                xBlueCursor -= 1;
+                --xBlueCursor;
             }
 			else if ((ch == 't') && (xRedCursor>50)) {
-            	xRedCursor -= 1;
+            	--xRedCursor;
 			}
-			else if ((ch == 'P')&& (xBlueCursor<950)) {
-				 xBlueCursor += 1;
+			else if ((ch == 'P') && (xBlueCursor<950)) {
+				++xBlueCursor;
 			}
 			else if ((ch == 'p') && (xBlueCursor > xRedCursor)) {
-				 xRedCursor	+= 1;			
+				++xRedCursor;			
 		 	}
+		 	else if (ch == 'f') {
+		 		showFrequencyValue();
+			 }
+			else if (ch == '\t') {
+				return;
+			}
 			//Reset 2 duong line
 			putimage(50,20,bufferWave, COPY_PUT);
 			//Ve 2 duong line moi
@@ -60,7 +91,6 @@ void moveTwoCursors(int16_t *data){
 				zoomTheSelectedWave(data, xRedCursor, xBlueCursor);
 				
 			}
-			
 		}
 	}
 }

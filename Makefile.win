@@ -4,8 +4,8 @@
 CPP      = g++.exe -D__DEBUG__
 CC       = gcc.exe -D__DEBUG__
 WINDRES  = windres.exe
-OBJ      = main.o Func.o boderRadius.o ../test/zoomSignalSegment.o
-LINKOBJ  = main.o Func.o boderRadius.o ../test/zoomSignalSegment.o
+OBJ      = main.o Func.o boderRadius.o zoomSignalSegment.o
+LINKOBJ  = main.o Func.o boderRadius.o zoomSignalSegment.o
 LIBS     = -L"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/lib32" -static-libgcc -lbgi -lgdi32 -lcomdlg32 -luuid -loleaut32 -lole32 -lbgi -lgdi32 -luser32 -m32 -g3
 INCS     = -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include"
 CXXINCS  = -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include/c++"
@@ -33,5 +33,5 @@ Func.o: Func.cpp
 boderRadius.o: boderRadius.cpp
 	$(CPP) -c boderRadius.cpp -o boderRadius.o $(CXXFLAGS)
 
-../test/zoomSignalSegment.o: ../test/zoomSignalSegment.cpp
-	$(CPP) -c ../test/zoomSignalSegment.cpp -o ../test/zoomSignalSegment.o $(CXXFLAGS)
+zoomSignalSegment.o: zoomSignalSegment.cpp
+	$(CPP) -c zoomSignalSegment.cpp -o zoomSignalSegment.o $(CXXFLAGS)

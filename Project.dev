@@ -1,6 +1,6 @@
 [Project]
-filename=Project.dev
-name=Project
+FileName=Project.dev
+Name=Project
 Type=1
 Ver=2
 ObjFiles=
@@ -90,8 +90,11 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
+[Unit6]
+FileName=zoomSignalSegment.cpp
+
 [Unit5]
-FileName=..\test\zoomSignalSegment.cpp
+FileName=zoomSignalSegment.cpp
 CompileCpp=1
 Folder=
 Compile=1
