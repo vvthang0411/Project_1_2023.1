@@ -6,6 +6,7 @@
 #include <conio.h>
 #include <math.h>
 #include <windows.h>
+#include <vector>
 
 #define WIDTH 1000
 #define HEIGHT 600
@@ -18,6 +19,11 @@ extern int Fs;
 extern char ch;
 extern int xRedCursor;
 extern int xBlueCursor;
+extern std::vector<int> fx;
+extern std::vector<int> fy;
+extern std::vector<int> f_val;
+//extern vector<int> fx;
+//extern std::vector<std::vector<int>> fx;
 
 typedef struct header {
     char chunk_id[4];
@@ -49,3 +55,4 @@ void showMaxMinAutoCorr(float maxAutoCorr, float minAutoCorr);
 void clearTheWindowFrame(int left, int top, int right, int bottom);
 void drawAndClearCurrentWindow (int16_t *data, int num_samples, int color, int startX, int startY);
 void moveTwoCursors(int16_t *data);
+void showFrequencyValue();

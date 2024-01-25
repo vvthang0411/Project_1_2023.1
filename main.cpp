@@ -1,10 +1,9 @@
 #include "funcPrototypes.h"
+#include <vector>
 int SampleNumber;
 float timeLength;
 int Fs;
-char ch;
-//int xRedCursor = 100;
-//int xBlueCursor = 200;
+
 int main(int argc, char *argv[]) {
 
 	//Định dạng kích thước cho cửa sổ đồ họa

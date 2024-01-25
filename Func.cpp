@@ -31,9 +31,12 @@ void drawAGraphOfFrequencyVariation(int &index,int start) {
 	float sample_spacing = (float)(900)/SampleNumber;
 	int x = 50 + (start + index)*sample_spacing;
 	
-	double f0 = (Fs)/index;
-	int y = 580 - (f0-80)/320*160;
+	int f0 = (Fs)/index;
+	int y = 580 - static_cast<float>(f0-80)/320*160;
 	if ( f0 < 400 && f0 > 80 ) {
+		fx.push_back(x);
+		fy.push_back(y);
+		f_val.push_back(f0);
 		circle(x , y, 3);
 	}
 }
@@ -129,7 +132,7 @@ void drawAndClearCurrentWindow (int16_t *data, int num_samples, int color, int s
     int start;
     float sample_spacing = (float)(900)/SampleNumber;
     //Luu hinh anh toan bo song am thanh
-    int *bufferWave = (int*)malloc(imagesize(20, 20, 950, 180));
+    int *bufferWave = (int*)malloc(imagesize(50, 20, 950, 180));
 	getimage(50, 20, 950, 180, bufferWave);
 	
 	int final = num_samples - WINDOW_SIZE/2 +1;
@@ -152,6 +155,9 @@ void drawAndClearCurrentWindow (int16_t *data, int num_samples, int color, int s
  		xRedCursor = 50 + (start)*sample_spacing;
 		xBlueCursor = xRedCursor + 2*step*sample_spacing;
  		moveTwoCursors(data);
+		}
+		if(ch == 'f') {
+			showFrequencyValue();
 		}
 	}
     delay(300);
