@@ -141,20 +141,17 @@ void drawAndClearCurrentWindow (int16_t *data, int num_samples, int color, int s
     clearTheWindowFrame(530, 220, 951, 379);
     drawWavesInTheCurrentWindow(data, num_samples, color, 50, 300, start);
     calculateAndDrawAutocorrelation(data, autoCorr, start, color, 530, 300);
-    
-    //chuc nang tam dung de zoom doan song dang xet bang cach nhan phim tab
-    int final2 = num_samples - WINDOW_SIZE +1;
-    if(start < final2) {
-    	drawCurentWindowFrame(start, num_samples, bufferWave);
-	}
-	
+    drawCurentWindowFrame(start, num_samples, bufferWave);
+
 	if (kbhit()) {
  		ch = getch();
+ 		//nhan phim tab se chuyen sang chuc nang zoom
  		if(ch == '\t') {
  		xRedCursor = 50 + (start)*sample_spacing;
 		xBlueCursor = xRedCursor + 2*step*sample_spacing;
  		moveTwoCursors(data);
 		}
+		//nhan phim f de chuyen sang chuc nang xem gia tri tan so
 		if(ch == 'f') {
 			showFrequencyValue();
 		}
