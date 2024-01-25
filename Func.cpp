@@ -120,7 +120,6 @@ void drawCurentWindowFrame(int start, int num_samples, int *bufferWave) {
 	line(right, 180, right, 20);
 }
 
-
 void clearTheWindowFrame(int left, int top, int right, int bottom){
 	setfillstyle(SOLID_FILL, BLACK);
     bar(left, top, right, bottom);
