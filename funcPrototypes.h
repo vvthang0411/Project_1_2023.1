@@ -22,8 +22,6 @@ extern int xBlueCursor;
 extern std::vector<int> fx;
 extern std::vector<int> fy;
 extern std::vector<int> f_val;
-//extern vector<int> fx;
-//extern std::vector<std::vector<int>> fx;
 
 typedef struct header {
     char chunk_id[4];

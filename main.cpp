@@ -5,7 +5,7 @@ float timeLength;
 int Fs;
 
 int main(int argc, char *argv[]) {
-
+	
 	//Định dạng kích thước cho cửa sổ đồ họa
 	int width = WIDTH+9;
     int height = HEIGHT+13;

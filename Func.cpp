@@ -126,7 +126,6 @@ void clearTheWindowFrame(int left, int top, int right, int bottom){
     bar(left, top, right, bottom);
 }
 
-
 void drawAndClearCurrentWindow (int16_t *data, int num_samples, int color, int startX, int startY) {
     float autoCorr[WINDOW_SIZE];
     int start;
