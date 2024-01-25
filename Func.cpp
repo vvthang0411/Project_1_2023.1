@@ -127,7 +127,7 @@ void clearTheWindowFrame(int left, int top, int right, int bottom){
 void drawAndClearCurrentWindow (int16_t *data, int num_samples, int color, int startX, int startY) {
     float autoCorr[WINDOW_SIZE];
     int start;
-    
+    float sample_spacing = (float)(900)/SampleNumber;
     //Luu hinh anh toan bo song am thanh
     int *bufferWave = (int*)malloc(imagesize(20, 20, 950, 180));
 	getimage(50, 20, 950, 180, bufferWave);
@@ -139,12 +139,21 @@ void drawAndClearCurrentWindow (int16_t *data, int num_samples, int color, int s
     clearTheWindowFrame(530, 220, 951, 379);
     drawWavesInTheCurrentWindow(data, num_samples, color, 50, 300, start);
     calculateAndDrawAutocorrelation(data, autoCorr, start, color, 530, 300);
-     
+    
+    //chuc nang tam dung de zoom doan song dang xet bang cach nhan phim tab
     int final2 = num_samples - WINDOW_SIZE +1;
     if(start < final2) {
     	drawCurentWindowFrame(start, num_samples, bufferWave);
 	}
 	
+	if (kbhit()) {
+ 		ch = getch();
+ 		if(ch == '\t') {
+ 		xRedCursor = 50 + (start)*sample_spacing;
+		xBlueCursor = xRedCursor + 2*step*sample_spacing;
+ 		moveTwoCursors(data);
+		}
+	}
     delay(300);
 	}
 	free(bufferWave);

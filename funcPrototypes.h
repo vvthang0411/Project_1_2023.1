@@ -5,15 +5,19 @@
 #include <stdint.h>
 #include <conio.h>
 #include <math.h>
+#include <windows.h>
+
 #define WIDTH 1000
 #define HEIGHT 600
 #define WINDOW_SIZE 512
 #define MAX_AMPLITUDE 32767
-#include <windows.h>
 
 extern int SampleNumber;
 extern float timeLength;
 extern int Fs;
+extern char ch;
+extern int xRedCursor;
+extern int xBlueCursor;
 
 typedef struct header {
     char chunk_id[4];

@@ -1,4 +1,5 @@
 #include "funcPrototypes.h"
+
 void borderRadius() {
 	
 	theFrameOfTheSoundWave();
@@ -32,6 +33,7 @@ void borderRadius() {
     bar(950, 420, 955, 585);
     bar(50, 580, 955, 585);
 }
+
 void theFrameOfFrequencyVariation() {
 	setcolor(YELLOW);
 	setlinestyle(DOTTED_LINE, 0, 1);
@@ -68,6 +70,7 @@ void theFrameOfFrequencyVariation() {
 	outtextxy(950, 585, buffer);
 	setlinestyle(SOLID_LINE, 1, 1);
 }
+
 void theFrameOfTheSoundWave(){
 	setcolor(YELLOW);
 	setlinestyle(DOTTED_LINE, 0, 1);

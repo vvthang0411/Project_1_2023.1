@@ -2,7 +2,9 @@
 int SampleNumber;
 float timeLength;
 int Fs;
-
+char ch;
+//int xRedCursor = 100;
+//int xBlueCursor = 200;
 int main(int argc, char *argv[]) {
 
 	//Định dạng kích thước cho cửa sổ đồ họa
@@ -67,8 +69,8 @@ int main(int argc, char *argv[]) {
     int16_t* inbuff16;
     inbuff16 = (int16_t*)malloc(2 * sizeof(int16_t) * SampleNumber);
     fread(inbuff16, 2, SampleNumber, infile);
-
- // file length
+    
+ 	// file length
 	timeLength = static_cast<float>(SampleNumber)/Fs;
 	borderRadius();
 	drawWaveForm(inbuff16, SampleNumber, LIGHTGREEN, 50, 100, 900, 0);
