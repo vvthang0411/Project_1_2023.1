@@ -61,7 +61,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit3]
-FileName=Func.cpp
+FileName=func.cpp
 CompileCpp=1
 Folder=
 Compile=1

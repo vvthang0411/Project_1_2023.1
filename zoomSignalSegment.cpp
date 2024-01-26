@@ -1,12 +1,16 @@
 #include "funcPrototypes.h"
 #include <vector>
+
+//Khai bao bien giu toa do cua con tro mau do va mau xanh
 int xRedCursor = 200;
 int xBlueCursor = 250;
 char ch;
+//khai bao 3 vecto co vai tro luu lai toa do cua tan so, gia tri cua tan so
 std::vector<int> fx;
 std::vector<int> fy;
 std::vector<int> f_val;
 
+//Zoom doan song dang tro den khi nhan phim i
 void zoomTheSelectedWave(int16_t *data,int xRedCursor,int xBlueCursor) {
 	float sample_spacing = (float)(900)/SampleNumber;
 	int redCursorIndex, blueCursorIndex;

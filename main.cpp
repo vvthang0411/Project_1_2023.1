@@ -74,9 +74,9 @@ int main(int argc, char *argv[]) {
 	borderRadius();
 	drawWaveForm(inbuff16, SampleNumber, LIGHTGREEN, 50, 100, 900, 0);
 	drawAndClearCurrentWindow (inbuff16, SampleNumber, LIGHTGREEN, 200, 300);
-	
+	//Khi chay het chuong trinh co the tiep tuc thuc hien cac thao zoom
 	moveTwoCursors(inbuff16);
-
+	//giai phong bo nho va dong file
 	free(meta);
 	fclose(infile);    
     return 0;

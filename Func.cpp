@@ -1,5 +1,6 @@
 #include "funcPrototypes.h"
 
+//Ve song tren toan bo truc thoi gian
 void drawWaveForm(int16_t *data, int num_samples, int color, int startX, int startY, int widthOfWindow, int firstSignal) {
 	float sample_spacing = (float)(widthOfWindow)/num_samples;
     for ( int i = 0; i < num_samples ; i++) {
@@ -13,7 +14,9 @@ void drawWaveForm(int16_t *data, int num_samples, int color, int startX, int sta
     }
 }
 
+//ve song trong cua so dang xet
 void drawWavesInTheCurrentWindow(int16_t *data, int num_samples, int color, int startX, int startY, int start){
+	
 	float sample_spacing = (float)(420)/WINDOW_SIZE;
 	for (int i = 0; i < WINDOW_SIZE ; i++) {
 	int x1 = startX + i * sample_spacing;
@@ -30,7 +33,7 @@ void drawWavesInTheCurrentWindow(int16_t *data, int num_samples, int color, int 
 void drawAGraphOfFrequencyVariation(int &index,int start) {
 	float sample_spacing = (float)(900)/SampleNumber;
 	int x = 50 + (start + index)*sample_spacing;
-	
+	// ve hinh tron bieu dien tan so
 	int f0 = (Fs)/index;
 	int y = 580 - static_cast<float>(f0-80)/320*160;
 	if ( f0 < 400 && f0 > 80 ) {

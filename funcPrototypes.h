@@ -1,3 +1,4 @@
+///khai bao cac thu vien can thiet
 #include <graphics.h>
 #include <stdio.h>
 #include <stdio.h>
@@ -12,7 +13,7 @@
 #define HEIGHT 600
 #define WINDOW_SIZE 512
 #define MAX_AMPLITUDE 32767
-
+//khai bao bien global
 extern int SampleNumber;
 extern float timeLength;
 extern int Fs;
@@ -22,7 +23,7 @@ extern int xBlueCursor;
 extern std::vector<int> fx;
 extern std::vector<int> fy;
 extern std::vector<int> f_val;
-
+//Khai bao struct header file wav
 typedef struct header {
     char chunk_id[4];
     int chunk_size;

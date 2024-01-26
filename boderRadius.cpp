@@ -1,5 +1,6 @@
 #include "funcPrototypes.h"
 
+//Ve khung vien
 void borderRadius() {
 	
 	theFrameOfTheSoundWave();
@@ -34,6 +35,7 @@ void borderRadius() {
     bar(50, 580, 955, 585);
 }
 
+//Ve truc toa do cua do thi tan so
 void theFrameOfFrequencyVariation() {
 	setcolor(YELLOW);
 	setlinestyle(DOTTED_LINE, 0, 1);
@@ -71,6 +73,7 @@ void theFrameOfFrequencyVariation() {
 	setlinestyle(SOLID_LINE, 1, 1);
 }
 
+//Ve truc toa do cua toan bo song
 void theFrameOfTheSoundWave(){
 	setcolor(YELLOW);
 	setlinestyle(DOTTED_LINE, 0, 1);
@@ -111,7 +114,8 @@ void theFrameOfTheSoundWave(){
 	outtextxy(10, 170, "-32767");
 	outtextxy(30, 90, "0");
 }
-	
+
+//Ve truc toa do cua song dang tro den
 void theFrameOfTheCurrentSoundWave() {
 	setcolor(YELLOW);
 	for (int x = 150; x < 451; x += 100) {
