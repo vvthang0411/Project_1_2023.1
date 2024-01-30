@@ -1,12 +1,23 @@
 Đây là Project của Vũ Văn Thăng, MSSV: 20215643, Đại học Bách khoa Hà Nội
 Giảng viên hướng dẫn: PGS.TS Trịnh Văn Loan
 
-Tính năng:
-Nếu ấn phím T sẽ dịch con trỏ màu xanh sang trái
-Ấn phím t sẽ dịch con trỏ màu đỏ sang trái.
-Nếu ấn phím P sẽ dịch con trỏ màu xanh sang phải
-Ấn phím p sẽ dịch con trỏ màu đỏ sang phải.
-Nếu ấn phím i thì sẽ Zoom đoạn tín hiệu giữa 2 con trỏ
+Chương trình có 2 chế độ tiện ích:
++ zoom: Phím ‘z’
++ Xem thông tin biến thiên tần số: Phím ‘f’ 
+Khi nhấn ‘z’ hoặc ‘f’ sẽ tạm dừng chương trình:
+
++ Nếu nhấn phím ‘z’ chương trình sẽ vào tiện ích zoom
+Nhấn phím ‘i’ trên bàn phím để zoom sóng có trong cửa sổ đang xét (Hình 3)
+Nhấn phím ‘T’ sẽ dịch con trỏ màu xanh sang trái.
+Nhấn phím ‘t’ sẽ dịch con trỏ màu đỏ sang trái
+Nhấn phím ‘P’ sẽ dịch con trỏ màu xanh sang phải
+Nhấn phím ‘p’ sẽ dịch con trỏ màu đỏ sang phải
+
++ Nhấn phím ‘f’ chương trình sẽ vào tiện ích xem thông tin biến thiên tần số F_0 (Hình 4)
+Nhấn phím ‘,’ sẽ dịch con trỏ (màu vàng) sang trái
+Nhấn phím ‘.’ sẽ dịch con trỏ (màu vàng) sang phải
+
+Nếu muốn thoát bất kỳ chế độ tiện ích nào hãy nhấn phím ‘x’.
 
 Tính năng bổ sung:
 Nhấn phím Tab sẽ tạm dừng chương trình đang chạy và có thể thực hiện các chức năng của phần tính năng
