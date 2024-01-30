@@ -20,7 +20,7 @@ void zoomTheSelectedWave(int16_t *data,int xRedCursor,int xBlueCursor) {
 	drawWaveForm(data, num_samples, LIGHTGREEN, 50, 300, 420, redCursorIndex);
 }
 
-void showFrequencyValue(){
+void showFrequencyValue(int16_t* data){
 	int f_index(0);
 	int *bufferf = (int*)malloc(imagesize(50, 420, 950, 580));
 	getimage(50, 420, 950, 580, bufferf);
@@ -34,7 +34,10 @@ void showFrequencyValue(){
 			else if ((ch == '.') && (f_index < fx.size()-1)) {
 				++f_index;
 			}
-			else if (ch == 'f'|| fx.size() == 0) return;
+			else if (ch == 'z'){
+				moveTwoCursors(data);
+			}
+			else if (ch == 'x' || fx.size() == 0 ) return;
 			//dat lai nen
 			putimage(50, 420,bufferf, COPY_PUT);
 			setcolor (YELLOW);
@@ -55,7 +58,7 @@ void showFrequencyValue(){
 	}
 }
 
-void moveTwoCursors(int16_t *data){
+void moveTwoCursors(int16_t* data){
 	int *bufferWave = (int*)malloc(imagesize(20, 20, 950, 180));
 	getimage(50, 20, 950, 180, bufferWave);
     while (1) {
@@ -76,9 +79,10 @@ void moveTwoCursors(int16_t *data){
 				++xRedCursor;			
 		 	}
 		 	else if (ch == 'f') {
-		 		showFrequencyValue();
-			 }
-			else if (ch == '\t') {
+		 		showFrequencyValue(data);
+			}
+			// Neu nhap phim x se thoat chuc nang hien tai
+			else if (ch == 'x') {
 				return;
 			}
 			//Reset 2 duong line
@@ -93,7 +97,6 @@ void moveTwoCursors(int16_t *data){
 				clearTheWindowFrame(50, 220, 471, 379);
 				theFrameOfTheCurrentSoundWave();
 				zoomTheSelectedWave(data, xRedCursor, xBlueCursor);
-				
 			}
 		}
 	}

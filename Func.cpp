@@ -68,13 +68,12 @@ void calculateAndDrawAutocorrelation(int16_t *data, float *autoCorr, int start, 
 			autoCorr[delay] += data[i] * data[i+delay];
 		}
 	}
-	
+	//Gia tri thap nhat xet tu vi tri thu 39 vi tan so toi da la 400Hz
 	float maxAutoCorr = 0;
 	float minAutoCorr = autoCorr[10];
-	
-	int index = 10;
+	int index(10);
 	//tan so giong noi cua nu trong khoang 120-400, cua nam la 80-250
-	//searchWindow/sample_rate = 1/f, f thuoc khoang tren
+	//searchWindow tim trong khoang 133 mau WindowSize/3.84
 	const int searchWindow = WINDOW_SIZE/3.84;
 	for (int i = 10; i < searchWindow; i++) {
 	    if (autoCorr[i] > maxAutoCorr) {
@@ -122,12 +121,12 @@ void drawCurentWindowFrame(int start, int num_samples, int *bufferWave) {
 	line(left, 180, left, 20);
 	line(right, 180, right, 20);
 }
-
+//Reset cua so
 void clearTheWindowFrame(int left, int top, int right, int bottom){
 	setfillstyle(SOLID_FILL, BLACK);
     bar(left, top, right, bottom);
 }
-
+//Xoa do thi song cu va ve lai do thi song hien tai
 void drawAndClearCurrentWindow (int16_t *data, int num_samples, int color, int startX, int startY) {
     float autoCorr[WINDOW_SIZE];
     int start;
@@ -147,15 +146,15 @@ void drawAndClearCurrentWindow (int16_t *data, int num_samples, int color, int s
 
 	if (kbhit()) {
  		ch = getch();
- 		//nhan phim tab se chuyen sang chuc nang zoom
- 		if(ch == '\t') {
  		xRedCursor = 50 + (start)*sample_spacing;
 		xBlueCursor = xRedCursor + 2*step*sample_spacing;
+ 		//nhan phim tab se chuyen sang chuc nang zoom
+ 		if(ch == 'z') {
  		moveTwoCursors(data);
 		}
 		//nhan phim f de chuyen sang chuc nang xem gia tri tan so
 		if(ch == 'f') {
-			showFrequencyValue();
+			showFrequencyValue(data);
 		}
 	}
     delay(300);
