@@ -73,7 +73,7 @@ void calculateAndDrawAutocorrelation(int16_t *data, float *autoCorr, int start, 
 	float minAutoCorr = autoCorr[10];
 	int index(10);
 	//tan so giong noi cua nu trong khoang 120-400, cua nam la 80-250
-	//searchWindow tim trong khoang 133 mau WindowSize/3.84
+	//searchWindow tim trong khoang 133 mau (WindowSize/3.84)
 	const int searchWindow = WINDOW_SIZE/3.84;
 	for (int i = 10; i < searchWindow; i++) {
 	    if (autoCorr[i] > maxAutoCorr) {
